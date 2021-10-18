@@ -2,7 +2,7 @@
 
 Contact me or create Pull Request if you have any suggestions.
 
-Can test : dok4ejtbibm5w.cloudfront.net  (Env devnet)
+Can test : https://dok4ejtbibm5w.cloudfront.net  (Env devnet)
 
 ### `yarn`
 
