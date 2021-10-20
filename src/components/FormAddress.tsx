@@ -35,7 +35,9 @@ export const FormAddress = () => {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {nfts.map((e) => (
             <>
-              <span style={{ margin: "10px 10px" }}>{JSON.stringify(e)}</span>
+              <pre>
+                <code style={{ margin: "10px 10px" }}>{JSON.stringify(e)}</code>
+              </pre>
             </>
           ))}
         </div>
