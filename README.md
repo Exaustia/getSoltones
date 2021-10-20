@@ -1,4 +1,4 @@
-# Simple page for get NFTs Soltones from public Address (Solana BlocChain)
+# Simple page for get NFTs Soltones from public Address (Solana BlockChain)
 
 Contact me or create Pull Request if you have any suggestions.
 
