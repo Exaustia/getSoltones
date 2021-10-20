@@ -2,6 +2,7 @@ import { PublicKey } from "@solana/web3.js";
 import * as anchor from "@project-serum/anchor";
 
 import getMetadatas from "./getMetadata";
+import { listSoltonesId } from "./soltones";
 
 type StringPublicKey = string;
 
@@ -68,17 +69,15 @@ export const getNFTs = async (publicKeyBase64: string) => {
 
   const tokensAddress = accounts
     .filter((e) => {
-      if (e.account?.data?.parsed?.info?.tokenAmount?.uiAmount !== 0)
+      if (
+        e.account?.data?.parsed?.info?.tokenAmount?.uiAmount !== 0 &&
+        listSoltonesId.includes(e.account?.data?.parsed?.info.mint)
+      )
         return e.account?.data?.parsed?.info;
-      return null;
+      return false;
     })
-    .map((e) => {
-      if (e.account?.data?.parsed?.info.mint)
-        // You can check the mint you need to be return
-        return e.account?.data?.parsed?.info?.mint;
-      return null;
-    });
 
+    .map((e) => e.account?.data?.parsed?.info?.mint);
   const result = await getMetadatas(connection, tokensAddress);
   return result;
 };
