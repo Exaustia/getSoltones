@@ -76,8 +76,13 @@ const getMultipleAccounts = async (connection: any, address: string[]) => {
   const args = connection._buildArgs([addressToBase], "root", "base64");
 
   const unsafeRes = await connection._rpcRequest("getMultipleAccounts", args);
+
   if (unsafeRes.result.value) {
-    const array = unsafeRes.result.value as AccountInfo<string[]>[];
+    const sortArray = unsafeRes.result.value.filter(
+      (e: AccountInfo<String[]>) => e
+    );
+
+    const array = sortArray as AccountInfo<string[]>[];
     return { address, array };
   }
 };

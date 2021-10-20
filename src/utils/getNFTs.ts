@@ -67,15 +67,15 @@ export const getNFTs = async (publicKeyBase64: string) => {
   const accounts = account.value;
 
   const tokensAddress = accounts
-    .map((e) => {
+    .filter((e) => {
       if (e.account?.data?.parsed?.info?.tokenAmount?.uiAmount !== 0)
         return e.account?.data?.parsed?.info;
       return null;
     })
     .map((e) => {
-      if (e.mint)
+      if (e.account?.data?.parsed?.info.mint)
         // You can check the mint you need to be return
-        return e.mint;
+        return e.account?.data?.parsed?.info?.mint;
       return null;
     });
 
