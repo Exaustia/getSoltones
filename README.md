@@ -2,7 +2,6 @@
 
 Contact me or create Pull Request if you have any suggestions.
 
-Can test : https://soltones.exaustia.com
 
 ### `yarn`
 
